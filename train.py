@@ -153,4 +153,7 @@ def train(epochs, data_loc, n_shot=4, q_queries=1, k_way=32, pretarined=True):
 
 if __name__ == '__main__':
     model = train(15, '/content/drive/MyDrive/Project_Data/RetailPulse/train/')
+    optimiser = torch.optim.Adam(model.parameters(), lr=1e-4)
+    ckp_path = "/content/drive/MyDrive/Project_Data/RetailPulse/model_1/b/best_model.pt"
+    model, optimiser, start_epoch, valid_acc_max = load_ckp(ckp_path, model, optimiser)
 
