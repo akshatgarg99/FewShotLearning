@@ -105,7 +105,7 @@ class test_dataset(torch.utils.data.Dataset):
 test_set = test_dataset(test_image_list)
 test_loader = torch.utils.data.DataLoader(dataset=test_set, batch_size=35, shuffle=False, num_workers=16)
 
-# stack where results of each barch will be recorded
+# stack where results of each branch will be recorded
 result_stack = []
 
 for idx, batch in enumerate(test_loader):
