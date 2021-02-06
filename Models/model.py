@@ -11,9 +11,9 @@ def conv_block(out_channels):
 
 
 class Classifier(nn.Module):
-    def __init__(self, num_input_channels):
+    def __init__(self):
         super(Classifier,self).__init__()
-        self.conv1 = conv_block(num_input_channels, 64)
+        self.conv1 = conv_block(3, 64)
         self.conv2 = conv_block(64, 64)
         self.conv3 = conv_block(64, 64)
         self.conv4 = conv_block(64, 64)

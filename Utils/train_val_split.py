@@ -2,15 +2,15 @@ import os
 import random
 
 
-def cat_loader(data_loc):
+def cat_loader(data_loc,train_cat = 1796,val_cat=390):
     # read the training folders and create a list of locations
     cat_list = os.listdir(data_loc)
     cat_list.sort(key=int)
 
     # divide training and validation categories
     # data will be validated on 390 unseen categories
-    val_categories = 390
-    train_categories = 1796  # chosen so that it is divisible by 32
+    val_categories = val_cat
+    train_categories = train_cat  # chosen so that it is divisible by 32
 
     # divide the dataset
     val_cat_list = cat_list[:val_categories]
@@ -34,9 +34,9 @@ def get_image_loc(cat_list,data_loc):
     return image_loc
 
 
-def image_loader(data_loc)
-    train_cat_list, val_cat_list = cat_loader(data_loc)
+def image_loader(data_loc,train_cat = 1796,val_cat=390)
+    train_cat_list, val_cat_list = cat_loader(data_loc, train_cat,val_cat)
     # get the location of the images for the training set
     train_image_loc = get_image_loc(train_cat_list, data_loc)
     val_image_loc = get_image_loc(val_cat_list, data_loc)
-    return train_image_loc, val_image_loc
+    return train_image_loc, val_image_loc, train_cat_list, val_cat_list
